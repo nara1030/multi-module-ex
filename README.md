@@ -16,7 +16,7 @@
      root  ─┼   core
             └ admin-api
      root 프로젝트 안에 세 모듈이 있고,
-     web-api 및 admin-api 모듈이 core 모듈에 의존하는 구조다.
+     web-api 및 admin-api 모듈이 core 모듈에 의존하는 구조다(하단 결과 참고).
   2) 소스
      루트 프로젝트는 하위 모듈 관리만 담당하므로 src 폴더를 삭제한다.
      settings.gradle 파일*에 하위 모듈들을 연결한다(include).
@@ -30,7 +30,7 @@
      각 모듈에 따로 세팅해줘도 된다.
   3) 기록
     A. tasks.register("prepareKotlinBuildScriptModel"){}
-       최초 프로젝트 빌드시 하단과 같은 에러가 떠서 build.gradle에 위를 추가했다.
+       최초 프로젝트 빌드시 하단과 같은 에러가 떠서 각 build.gradle에 위를 추가했다.
        A problem occurred evaluating root project 'web-api'.
        > Project with path ':core' could not be found in root project 'web-api'.
     B. web-api(혹은 admin-api)에서 core 모듈의 빈을 사용하기 위해 다음을 추가했다.
@@ -53,3 +53,9 @@
 
 
 ```
+
+실행 결과는 다음과 같다.
+
+<img src="img/a01.png" width="600" height="100">
+
+<img src="img/a02.png" width="600" height="100">
